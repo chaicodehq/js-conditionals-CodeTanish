@@ -31,4 +31,23 @@
  */
 export function calculateTip(billAmount, serviceRating) {
   // Your code here
+  if (billAmount <= 0 || typeof serviceRating !== 'number' || serviceRating > 5 || serviceRating < 1) return null
+  else {
+    if (serviceRating === 1) return {
+      tipPercentage: Number(5), tipAmount: Number((billAmount*0.05)), totalAmount: Number((billAmount*0.05) + billAmount)
+    }
+    else if (serviceRating === 2) return {
+      tipPercentage: Number(10), tipAmount: Number((billAmount*(10/100))), totalAmount: Number((billAmount*(10/100)) + billAmount)
+    }
+    else if (serviceRating === 3) return {
+      tipPercentage: Number(15), tipAmount: Number((billAmount*(15/100))), totalAmount: Number((billAmount*(15/100)) + billAmount)
+    }
+    else if (serviceRating === 4) return {
+      tipPercentage: Number(20), tipAmount: Number((billAmount*(20/100))), totalAmount: Number((billAmount*(20/100)) + billAmount)
+    }
+    else if (serviceRating === 5) return {
+      tipPercentage: Number(25), tipAmount: Number((billAmount*(25/100))), totalAmount: Number((billAmount*(25/100)) + billAmount)
+    }
+    else return null
+  }
 }
